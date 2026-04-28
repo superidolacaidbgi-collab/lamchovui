@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Gửi Crush</title>
+    <style>
+      body {
+        background-color: #ffebee;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        overflow: hidden;
+        text-align: center;
+      }
+      .noi_dung {
+        background-color: white;
+        padding: 2rem;
+        border-radius: 20px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1); /* Thêm màu cho shadow để thấy rõ hơn */
+        z-index: 10;
+        max-width: 400px;
+      }
+
+      h1 {
+        color: #e91e63;
+        font-size: 25px;
+      }
+
+      p {
+        color: grey;
+        line-height: 1.5;
+      }
+      .nut {
+        background-color: #ff4081;
+        color: aliceblue;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 25px;
+        cursor: pointer;
+        font-size: 15px;
+        transition: transform 0.3s; /* Đã thêm 's' */
+        margin-top: 15px;
+      }
+      .nut:hover {
+        transform: scale(1.1);
+        background-color: #f50057;
+      }
+      #thu_an {
+        display: none;
+        margin-top: 20px;
+        color: #c2185b;
+        font-weight: bold;
+        font-size: 18px;
+        animation: fadeIn 1s;
+      }
+
+      .traitim {
+        position: absolute;
+        color: #ff80ab;
+        font-size: 20px;
+        user-select: none;
+        animation: move 4s linear infinite;
+        opacity: 0;
+        top: -50px; /* Bắt đầu từ ngoài màn hình */
+      }
+      @keyframes move {
+        0% {
+          transform: translateY(100vh) rotate(0deg);
+          opacity: 1;
+        }
+        100% {
+          transform: translateY(-10vh) rotate(360deg);
+          opacity: 0;
+        }
+      }
+
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+        }
+        to {
+          opacity: 1;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="noi_dung">
+      <h1>Chào cậu ! ❤️</h1>
+      <p>
+        Tớ có một điều nhỏ xíu này muốn nhắn nhủ, cậu bấm vào nút bên dưới nhé?
+      </p>
+      <button class="nut" onclick="showMessage()">Bấm vào đây nè</button>
+      <div id="thu_an">
+        Tớ thích cậu nhiều lắm! <br />
+        Làm bạn (đời) với tớ nha? 💐
+      </div>
+    </div>
+
+    <script>
+      function showMessage() {
+        // Đã sửa "hidden-message" thành "thu_an"
+        document.getElementById("thu_an").style.display = "block";
+        for (let i = 0; i < 30; i++) {
+          createHeart();
+        }
+      }
+      function createHeart() {
+        const heart = document.createElement("div");
+        heart.classList.add("traitim");
+        heart.innerHTML = "❤️";
+        heart.style.left = Math.random() * 100 + "vw";
+        heart.style.animationDuration = Math.random() * 2 + 3 + "s";
+        document.body.appendChild(heart);
+        setTimeout(() => {
+          heart.remove();
+        }, 5000);
+      }
+    </script>
+  </body>
+</html>
