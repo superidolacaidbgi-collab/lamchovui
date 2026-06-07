@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<hmtl>
+<body>
+        <form action="index.php" method="POST">
+        <input type="radio" name="giaohang" value="shoppe">
+        shoppe <br>
+        <input type="radio" name="giaohang" value="grab">
+        grab <br>
+        <input type="radio" name="giaohang" value="xanhsm">
+        xanhsm <br>
+    <button type="submit" name="xacnhan" value="xacnhan">Chọn<nav></nav></button> 
+    </form>
+</body>
+</html>
+<?php
+if(isset($_POST["xacnhan"])){
+    // 1. Kiểm tra xem người dùng đã chọn phương thức giao hàng chưa
+    if(isset($_POST["giaohang"])){
+    $giaohang = $_POST["giaohang"];
+    }
+    // 2. Kiểm tra giá trị của phương thức được chọn
+    switch($giaohang){
+        case "shoppe":
+            echo " bạn đã chọn shoppe ";
+            break;
+        case "grab":
+            echo " bạn đã chọn grab ";
+            break;
+        case "xanhsm":
+            echo " bạn đã chọn xanhsm ";
+            break;
+        default:
+            echo " Vui Lòng chọn ";
+    }
+}
+?>
