@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<hmtl>
+<body>
+    <form action="index.php" method="POST">
+    <label> Nhập độ đẹp trai </label>
+    <input type="number" name="deptrai">
+    <button type="submit">Kiểm tra</button> 
+    </form>
+</body>
+</html>
+<?php
+
+$phantram = array(100, 70, 50, 30, 0);
+//ham hop le trong array
+
+if (isset($_POST["deptrai"])){
+//kiem tra xem có nhập 
+    $deptrai = (int)$_POST["deptrai"]; 
+    
+    if (in_array($deptrai, $phantram)) {
+    //nếu nhập trong cái array 
+        echo "Độ đẹp trai của mày là " . $deptrai . "% <br>";
+    // trả ra cái phần trăm 
+    // toán tử kiểm tra độ đẹp trai
+    switch ($deptrai) {
+        case " 100 ":
+            echo "Mày rất đẹp trai!";
+            break;
+        case " 70 " : 
+            echo "Mày hơi đẹp trai.";
+            break;
+        case "  50 " ; 
+            echo "Mày bình thường ";
+            break;
+        case " 30 ";
+            echo "Tự xem lại bản thân đi nha.";
+            break;
+        case  " 0 ":
+            echo "Xấu như chó! ";
+            break;
+        default:
+        echo " Khong hop le ";
+        break;
+    }  
+} 
+}
+?>
